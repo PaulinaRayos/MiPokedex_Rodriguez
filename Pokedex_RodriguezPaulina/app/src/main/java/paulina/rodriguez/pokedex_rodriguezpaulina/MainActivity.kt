@@ -43,6 +43,20 @@ class MainActivity : AppCompatActivity() {
         adapter = PokemonAdapter(this, listaPokemones)
         listView.adapter = adapter
 
+
+        listView.setOnItemClickListener { _, _, position, _ ->
+            val pokemonSeleccionado = listaPokemones[position]
+
+            val intent = Intent(this, VisualizacionActivity::class.java).apply {
+                putExtra("nombre", pokemonSeleccionado.nombre)
+                putExtra("numero", pokemonSeleccionado.numero)
+                putExtra("imagenUrl", pokemonSeleccionado.imagenUrl)
+            }
+            startActivity(intent)
+        }
+
+
+
         val database = FirebaseDatabase.getInstance()
         val pokemonesRef = database.getReference("pokemones")
 

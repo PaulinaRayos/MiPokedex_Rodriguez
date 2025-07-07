@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="rojoback">#ff3334</color>
+    <color name="gris">#636363</color>
+    <color name="amarillobtn">#FFC90E</color>
+
+
 </resources>

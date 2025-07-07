@@ -114,14 +114,14 @@ class AddPokemonActivity : AppCompatActivity() {
         ivPokemon.setImageURI(uri)
     }
 
-    private var cloudinaryInitialized = false
 
     private fun initCloudinary() {
-        if (!cloudinaryInitialized) {
+        try {
             val config: MutableMap<String, String> = HashMap()
             config["cloud_name"] = CLOUD_NAME
-            MediaManager.init(this, config)
-            cloudinaryInitialized = true
+            MediaManager.init(this.applicationContext, config)
+        } catch (e: IllegalStateException) {
+            // ya estaba inicializado
         }
     }
 
